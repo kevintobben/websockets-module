@@ -20,74 +20,76 @@
 </head>
 <body>
 
-<div class="container h-100">
-  <div class="row h-100 justify-content-center align-items-center">
-    <div class="chat-container col-lg-8">
+  <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="chat-container col-lg-8">
 
-      <div class="chat-header container mt-5 dark-color-b">
-        <div class="row py-3">
-          <div class="col-md-8">
-            <h1>Alcoholisten Hub</h1>
-          </div>
-          <div class="col-md-4">
-            <a id="leave-btn" class="btn btn-dark float-md-end rounded-0">Verlaat de alcoholisten</a>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="chat-main">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="chat-sidebar dark-color-a h-100 p-2">
-              <h2 class="fw-bold">Meeting Hub:</h2>
-              <h4 id="room-name"></h4>
-              <h2 class="fw-bold">Alcoholisten</h2>
-              <ul id="users"></ul>
+        <div class="chat-header container mt-5 dark-color-b">
+          <div class="row py-3">
+            <div class="col-md-8">
+              <h1>Alcoholisten Hub</h1>
+            </div>
+            <div class="col-md-4">
+              <a id="leave-btn" class="btn btn-dark float-md-end rounded-0">Verlaat de alcoholisten</a>
             </div>
           </div>
-          <div class="col-md-8">
-            <div class="chat-messages"></div>
+        </div>
+
+
+
+        <div class="chat-main">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="chat-sidebar dark-color-a h-100 p-2">
+                <h2 class="fw-bold">Meeting Hub:</h2>
+                <h4 id="room-name"></h4>
+                <h2 class="fw-bold">Alcoholisten</h2>
+                <ul id="users"></ul>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="chat-messages"></div>
+            </div>
           </div>
         </div>
-      </div>
 
 
-      <div class="chat-footer container dark-color-b p-2">
-        <form id="chat-form" class="row">
-          <div class="col-md-9">
-            <input
+        <div class="chat-footer container dark-color-b p-2">
+          <form id="chat-form" class="row">
+            <div class="col-md-9">
+              <input
                     id="msg"
                     type="text"
                     class="form-control rounded-0"
                     placeholder="Typ hier een berichtje"
                     required
                     autocomplete="off"
-            />
-          </div>
-          <div class="col-md-3">
-            <button class="btn btn-dark btn-block rounded-0">Deel je alcoholisme</button>
-          </div>
-        </form>
+              />
+            </div>
+            <div class="col-md-3">
+              <button class="btn btn-dark btn-block rounded-0">Deel je alcoholisme</button>
+            </div>
+          </form>
+        </div>
+
+
       </div>
-
-
     </div>
   </div>
-</div>
 
-<script
+  <script
         src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
         integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
-        crossorigin="anonymous"
-></script>
-<script
+        crossorigin="anonymous">
+
+  </script>
+  <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"
-></script>
-<script src="/socket.io/socket.io.js"></script>
-<script src="js/main.js"></script>
+        crossorigin="anonymous">
+
+  </script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
