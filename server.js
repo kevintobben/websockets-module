@@ -24,7 +24,7 @@ const botName = "Gespreksleider zegt:";
 
 
 
-// Run dit wanneer iemand connect
+// Redis adapter
 io.on("connection", (socket) => {
   console.log(io.of("/").adapter);
   socket.on("joinRoom", ({ username, room }) => {
@@ -32,10 +32,10 @@ io.on("connection", (socket) => {
 
     socket.join(user.room);
 
-    // Groet de gebruiker
+    // Welkomstbericht
     socket.emit("message", formatMessage(botName, `Welkom, ${user.username}!`));
 
-    // Laat zien wanneer nog iemand joint
+    // Laat zien wanneer iemand de chat joint
     socket.broadcast
         .to(user.room)
         .emit(
@@ -43,14 +43,14 @@ io.on("connection", (socket) => {
             formatMessage(botName, `${user.username} Is de chat gejoined`)
         );
 
-    // Verstuur Users & kamer info
+    // Laat zien wie er in de chat zit
     io.to(user.room).emit("roomUsers", {
       room: user.room,
       users: getRoomUsers(user.room),
     });
   });
 
-  // Kijk naar chat berichten
+  // check voor chatMessage
   socket.on("chatMessage", (msg) => {
     const user = getCurrentUser(socket.id);
 
@@ -62,18 +62,20 @@ io.on("connection", (socket) => {
     const user = userLeave(socket.id);
 
     if (user) {
-      io.to(user.room).emit(
-        "message",
-        formatMessage( `${user.username} Heeft de kamer verlaten`)
-      );
-
-      // Verstuur Users & kamer info
+      // Laat zien wie er nog in de chat zit
       io.to(user.room).emit("roomUsers", {
         room: user.room,
         users: getRoomUsers(user.room),
       });
+
+      // Laat zien wanneer iemand de chat verlaat
+      io.to(user.room).emit(
+          "message",
+          formatMessage(botName, `${user.username} Heeft de kamer verlaten`)
+      );
     }
   });
+
 });
 
 const PORT = process.env.PORT || 3000;
