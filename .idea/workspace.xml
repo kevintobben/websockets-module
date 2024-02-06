@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1a6fb72c-7f62-44e3-8947-3b6215ab22f8" name="Changes" comment="x">
       <change beforePath="$PROJECT_DIR$/public/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +53,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14015.96" />
+        <option value="bundled-php-predefined-ba97393d7c68-b4dcf6bb9de9-com.jetbrains.php.sharedIndexes-PS-233.13135.108" />
       </set>
     </attachedChunks>
   </component>
@@ -69,6 +68,7 @@
       <workItem from="1706274213474" duration="5795000" />
       <workItem from="1706439263403" duration="129000" />
       <workItem from="1707129778936" duration="6353000" />
+      <workItem from="1707206927706" duration="1531000" />
     </task>
     <task id="LOCAL-00001" summary="x">
       <option name="closed" value="true" />
