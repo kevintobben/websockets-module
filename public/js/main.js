@@ -3,7 +3,7 @@ const chatMessages = document.querySelector('.chat-messages');
 const roomName = document.getElementById('room-name');
 const userList = document.getElementById('users');
 
-// Get username and room from URL
+//
 const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
 });
@@ -13,26 +13,26 @@ const socket = io();
 // Join chatroom
 socket.emit('joinRoom', { username, room });
 
-// Get room and users
+
 socket.on('roomUsers', ({ room, users }) => {
   outputRoomName(room);
   outputUsers(users);
 });
 
-// Message from server
+// Message van de server
 socket.on('message', (message) => {
   console.log(message);
   outputMessage(message);
 
-  // Scroll down
+// Scroll down
   chatMessages.scrollTop = chatMessages.scrollHeight;
 });
 
-// Message submit
+// Bericht versturen
 chatForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  // Get message text
+// Haal bericht op
   let msg = e.target.elements.msg.value;
 
   msg = msg.trim();
@@ -41,15 +41,15 @@ chatForm.addEventListener('submit', (e) => {
     return false;
   }
 
-  // Emit message to server
+// Emit message naar de server
   socket.emit('chatMessage', msg);
 
-  // Clear input
+// Clear input
   e.target.elements.msg.value = '';
   e.target.elements.msg.focus();
 });
 
-// Output message to DOM
+// Output message naar de DOM
 function outputMessage(message) {
   const div = document.createElement('div');
   div.classList.add('message');
@@ -65,12 +65,12 @@ function outputMessage(message) {
   document.querySelector('.chat-messages').appendChild(div);
 }
 
-// Add room name to DOM
+// Voeg kamer toe aan de DOM
 function outputRoomName(room) {
   roomName.innerText = room;
 }
 
-// Add users to DOM
+// Voeg gebruikers toe aan de DOM
 function outputUsers(users) {
   userList.innerHTML = '';
   users.forEach((user) => {
@@ -80,7 +80,7 @@ function outputUsers(users) {
   });
 }
 
-//Prompt the user before leave chat room
+// De pop-up als je de chat wilt verlaat
 document.getElementById('leave-btn').addEventListener('click', () => {
   const leaveRoom = confirm('Weet  je zeker dat je hier weg wilt? :(');
   if (leaveRoom) {
